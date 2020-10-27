@@ -1,15 +1,10 @@
+import { FETCH_COURSES } from '../actions/types';
+
 export default function (state = [], action) {
     switch (action.type) {
-        default:
-            return [
-                
-                    {
-                    'title': 'Up and running with redis', 'description': 'Up and runing with redis, Up and runing with redis, Up and runing with redis, Up and runing with redis'
-                },
-                {
-                    'title': 'Ux for developers', 'description': 'Up and runing with redis, Up and runing with redis, Up and runing with redis, Up and runing with redis'
-                }
-                
-            ]
-}
+        case FETCH_COURSES:
+            console.log(action.payload)
+            return [...state, ...action.payload]
+        default: return state
+    }
 }
