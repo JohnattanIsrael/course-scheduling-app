@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import actions from '../actions';
 import { fetchCourses } from '../actions/';
 
 class CourseLibrary extends Component {
@@ -18,7 +17,7 @@ class CourseLibrary extends Component {
 
     renderCourse(course) {
         return (
-            <li key={this.title} className='course'>
+            <li key={course.title} className='course'>
                 <div className='course__info'>
                     <div className='course__title-container'>
                         <div className='course__title'>
