@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCourses } from '../actions/';
+import { fetchCourses, addCourse } from '../actions/';
 
 class CourseLibrary extends Component {
 
@@ -24,6 +24,15 @@ class CourseLibrary extends Component {
                             {course.title}
                         </div>
                     </div>
+                    <a className='arrow'>
+                        Arrow
+                    </a>
+                    <a className={`action ${course.enrolled ? 'hide-content' : 'show-content'}`} onClick={() => this.props.addCourse(course)}>
+                        Add
+                    </a>
+                    <a className={`action ${course.enrolled ? 'show-content' : 'hide-content'}`} onClick={() => this.props.removeCourse(course)}>
+                        Remove
+                    </a>
                 </div>
                 <div className='course__description'>
                     <h6 className='course__description-title'>
@@ -52,9 +61,15 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return{ 
+    return {
         fetchCourses: () => {
             dispatch(fetchCourses())
+        },
+        addCourse: (course) => {
+            dispatch(addCourse(course))
+        },
+        removeCourse: (course) => {
+            dispatch(removeCourse(course))
         }
     }
 }
