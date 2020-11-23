@@ -18,7 +18,7 @@ class CourseLibrary extends Component {
 
     renderCourse(course) {
         return (
-            <li key={course.title} className='course'>
+            <li key={course.title} className={`course ${course.open ? 'course__selected' : ''}`}>
                 <div className='course__info'>
                     <div className='course__title-container'>
                         <div className='course__title'>
@@ -36,7 +36,7 @@ class CourseLibrary extends Component {
 
                 <AnimateHeight
                     duration={300}
-                    height={course.open ? 'auto' : '0'} // see props documentation below
+                    height={course.open ? 'auto' : 0} // see props documentation below
                 >
                     <div className={`course__description`}>
                         <h6 className='course__description-title'>
